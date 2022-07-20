@@ -1,7 +1,47 @@
-.App {
-  text-align: center;
-  color: red;
-  font-size: 30px;
+.wrapper {
+  display: grid;
+  grid-template-areas: "header header" "nav content";
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
+  width: 1200px;
+  margin: 0 auto;
+
 }
+
+.header
+{
+  grid-area: header;
+  background-color: green;
+}
+
+.header img
+{
+  width: 20px;
+}
+
+.nav
+{
+  grid-area: nav;
+  background-color: green;
+}
+
+.content
+{
+  grid-area: content;
+  background-color: green;
+}
+
+.avatar
+{
+  width: 20%;
+}
+
+.content-header
+{
+  width: 100%;
+}
+
+
 
 
