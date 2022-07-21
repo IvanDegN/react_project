@@ -1,10 +1,11 @@
+import style from '../style/Nav.module.css'
 
 const Nav = () =>
 {
     return (
-        <nav className='nav'>
+        <nav className={style.nav}>
             <div>
-                <a href={'#'}>Profile</a>
+                <a className={style.active} href={'#'}>Profile</a>
             </div>
             <div>
                 <a href={'#'}>Messages</a>

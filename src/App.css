@@ -9,38 +9,11 @@
 
 }
 
-.header
-{
-  grid-area: header;
-  background-color: green;
-}
 
-.header img
-{
-  width: 20px;
-}
 
-.nav
-{
-  grid-area: nav;
-  background-color: green;
-}
 
-.content
-{
-  grid-area: content;
-  background-color: green;
-}
 
-.avatar
-{
-  width: 20%;
-}
 
-.content-header
-{
-  width: 100%;
-}
 
 
 

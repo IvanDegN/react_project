@@ -1,0 +1,45 @@
+.content
+{
+    grid-area: content;
+    background-color: green;
+}
+
+.avatar
+{
+    width: 20%;
+    border-radius: 50%;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.contentHeader
+{
+    width: 100%;
+    height: 20%;
+
+}
+
+.posts
+{
+    padding-left: 10px;
+}
+
+
+
+.titlePosts
+{
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: large;
+}
+
+.item
+{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.newPost
+{
+    margin-top: 5px;
+}

@@ -1,0 +1,31 @@
+.nav
+{
+    grid-area: nav;
+    background-color: green;
+
+}
+
+.nav a
+{
+    color: white;
+    text-decoration: none;
+    padding-left: 15px;
+}
+
+.nav:not(:last-child)
+{
+    padding-top: 5px;
+}
+
+.nav a:hover
+{
+    color: gold;
+}
+
+.nav a.active
+{
+    color: black;
+    font-weight: bold;
+    cursor: default;
+}
+
