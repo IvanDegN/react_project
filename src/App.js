@@ -1,45 +1,15 @@
 
 import './App.css';
+import Header from "./components/Header";
+import Nav from "./components/Nav";
+import Content from "./components/Content";
 
 const App = () => {
   return (
     <div className='wrapper'>
-        <header className='header'>
-            <img src={'https://i.pinimg.com/736x/0d/cf/b5/0dcfb548989afdf22afff75e2a46a508.jpg'} alt={'logo'} />
-        </header>
-        <nav className='nav'>
-            <div>
-                <a href={'#'}>Profile</a>
-            </div>
-            <div>
-                <a href={'#'}>Messages</a>
-            </div>
-            <div>
-                <a href={'#'}>News</a>
-            </div>
-            <div>
-                <a href={'#'}>Music</a>
-            </div>
-
-            <div>
-                <a href={'#'}>Settings</a>
-            </div>
-        </nav>
-        <div className='content'>
-            <img className={'content-header'} src={'https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg?w=2000'} alt={'background'} />
-            <div>
-                <img className={'avatar'} src={'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg'} alt={'avatar'} />
-                description
-            </div>
-            <div>
-                My posts
-                <div>New post</div>
-                <div>Post 1</div>
-                <div>Post 2</div>
-            </div>
-
-
-        </div>
+        <Header/>
+        <Nav/>
+        <Content/>
     </div>
   );
 }

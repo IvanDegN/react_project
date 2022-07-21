@@ -1,11 +1,10 @@
-import List from "./List";
+
 
 const Header = () => {
     return (
-        <div className="App">
-            Hello world - Header!
-            <List />
-        </div>
+        <header className='header'>
+            <img src={'https://i.pinimg.com/736x/0d/cf/b5/0dcfb548989afdf22afff75e2a46a508.jpg'} alt={'logo'} />
+        </header>
     );
 }
 
