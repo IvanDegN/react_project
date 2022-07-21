@@ -1,8 +1,8 @@
 
 import './App.css';
-import Header from "./components/Header";
-import Nav from "./components/Nav";
-import Profile from "./components/Profile";
+import Header from "./Header/Header";
+import Nav from "./NavBar/Nav";
+import Profile from "./Profile/Profile";
 
 const App = () => {
   return (
