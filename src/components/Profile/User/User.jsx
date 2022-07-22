@@ -1,4 +1,4 @@
-import style from "../User/User.module.css";
+import style from "./User.module.css";
 
 const User = () =>
 {
