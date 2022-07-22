@@ -22,10 +22,24 @@
     color: gold;
 }
 
+
+
 .nav a.active
 {
     color: black;
     font-weight: bold;
     cursor: default;
 }
+
+nav a.active:hover
+{
+    color: black;
+}
+
+.default
+{
+    color: white;
+}
+
+
 
