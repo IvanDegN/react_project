@@ -1,25 +1,20 @@
 import style from './Messages.module.css'
+import Dialog from "../Dialog/Dialog";
+import Message from "../Dialog/Message/Message";
 
 const Messages = () =>
 {
     return (
         <div className={style.dialogs}>
-
             <div className={style.dialogsItems}>
-                <div className={`${style.dialog} ${style.active}`}>
-                    Ivan
-                </div>
-                <div className={style.dialog}>
-                    Sveta
-                </div>
-                <div className={style.dialog}>
-                    Andrew
-                </div>
+                <Dialog name={'Sveta'} url={'messages/1'}/>
+                <Dialog name={'Ivan'} url={'messages/2'}/>
+                <Dialog name={'Valera'} url={'messages/3'}/>
             </div>
             <div className={style.messages}>
-                <div className={style.message}>Hi</div>
-                <div className={style.message}>How are you?</div>
-                <div className={style.message}>It looks strange</div>
+                <Message message={'Hi'}/>
+                <Message message={'How are you?'}/>
+                <Message message={'I seem it looks strange'}/>
             </div>
         </div>
     );

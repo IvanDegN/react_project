@@ -1,0 +1,41 @@
+.dialog
+{
+
+}
+
+.dialog a .link
+{
+
+}
+
+.dialog a
+{
+    text-decoration: none;
+    color: white;
+}
+
+.dialog a:hover
+{
+    color: gold;
+}
+
+.dialog a.active
+{
+    color: black;
+    font-weight: bold;
+}
+
+.active:hover
+{
+    color: black;
+    font-weight: bold;
+}
+
+
+.avatar-dialog
+{
+    width: 50%;
+    border-radius: 50%;
+    margin-top: 15px;
+    margin-left: 15px;
+}
