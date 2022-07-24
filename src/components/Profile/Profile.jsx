@@ -2,11 +2,11 @@
 import User from "./User/User";
 import MyPosts from "./MyPosts/MyPosts";
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div>
             <User/>
-            <MyPosts/>
+            <MyPosts post={props.post} id={props.id}/>
         </div>
     );
 }
