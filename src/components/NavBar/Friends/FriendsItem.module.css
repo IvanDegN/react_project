@@ -1,0 +1,40 @@
+.wrapper
+{
+    background-color: green;
+}
+
+.friendItem
+{
+
+    text-align: center;
+
+
+}
+
+.friendItem a
+{
+    text-decoration: none;
+}
+
+.friendItem a:hover
+{
+    color: gold;
+    font-weight: normal;
+}
+
+.friendItem img
+{
+    border-radius: 50%;
+    height: 50px;
+}
+
+.friendName
+{
+    text-align: center;
+
+}
+
+figure
+{
+    margin: 0;
+}

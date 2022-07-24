@@ -41,5 +41,29 @@ nav a.active:hover
     color: white;
 }
 
+.friendsWrapper
+{
+
+    background-color: green;
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+
+}
+
+.friendsWrapper a
+{
+    color: white;
+}
+
+.friendsTitle
+{
+    padding-left: 15px;
+    padding-top: 10px;
+    font-size: 30px;
+    color: white;
+    background-color: green;
+}
+
 
 
