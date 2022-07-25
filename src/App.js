@@ -3,7 +3,7 @@ import Header from "./components/Header/Header";
 import Nav from "./components/NavBar/Nav";
 import Profile from "./components/Profile/Profile";
 import Messages from "./components/Messages/Messages";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
@@ -11,7 +11,6 @@ import Settings from "./components/Settings/Settings";
 
 const App = (props) => {
     return (
-        <BrowserRouter>
             <div className={'wrapper'}>
                 <Header/>
                 <Nav state={props.state.NavBar}/>
@@ -25,8 +24,6 @@ const App = (props) => {
                     </Routes>
                 </div>
             </div>
-        </BrowserRouter>
-
 );
 }
 
