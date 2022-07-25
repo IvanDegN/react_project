@@ -32,7 +32,8 @@ let state =
                         {id: 3, text: 'She has a dog', likesCount: 10},
                         {id: 4, text: 'He always does his work in time', likesCount: 10},
                         {id: 5, text: 'She watches TV', likesCount: 10}
-                    ]
+                    ],
+                NewPostText: 'Hello'
             },
         NavBar:
             {
@@ -50,9 +51,16 @@ let state =
 export let addPost = (postMessage) =>
 {
     let newPost = {id:6, text: postMessage, likesCount: 30}
+    state.profilePage.NewPostText = '';
     state.profilePage.post.push(newPost);
     rerender(state)
 
+}
+
+export let UpdateNewPostText = (NewText) =>
+{
+    state.profilePage.NewPostText = NewText;
+    rerender(state);
 }
 
 export default state;

@@ -9,6 +9,7 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 
 
+
 const App = (props) => {
     return (
             <div className={'wrapper'}>
@@ -16,7 +17,7 @@ const App = (props) => {
                 <Nav state={props.state.NavBar}/>
                 <div className={'wrapper-content'}>
                     <Routes>
-                        <Route path={'/profile'} element={<Profile state={props.state.profilePage} addPost={props.addPost}/>}/>
+                        <Route path={'/profile'} element={<Profile profilePage={props.state.profilePage} addPost={props.addPost} NewPostText={props.NewPostText} UpdateNewPostText={props.UpdateNewPostText}/>}/>
                         <Route path={'/messages/*'} element={<Messages state={props.state.messagesPage}/>}/>
                         <Route path={'/news'} element={<News/>}/>
                         <Route path={'/music'} element={<Music/>}/>
