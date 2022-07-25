@@ -7,11 +7,13 @@ const MyPosts = (props) =>
 
 
     let ref = React.createRef();
-    let addPost = () => {
+    let addPost = () =>
+    {
         let text = ref.current.value;
-        alert(text);
-    };
-    let postItem = props.post.map(element => <Post id={element.id} key={element.id} like={element.likesCount} text={element.text}/>)
+        props.addPost(text)
+    }
+
+    let postItem = props.post.map(element => <Post id={element.id} key={element.id} like={element.likesCount} text={element.text}  />)
 
     return (
         <div className={style.posts}>
