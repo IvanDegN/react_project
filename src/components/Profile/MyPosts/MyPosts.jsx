@@ -5,8 +5,6 @@ import React from "react";
 
 const MyPosts = (props) =>
 {
-
-
     let ref = React.createRef();
     let addPost = () =>
     {

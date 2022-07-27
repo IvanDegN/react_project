@@ -6,32 +6,34 @@ import React from "react";
 const Messages = (props) =>
 {
 
-
-
-    let DialogItem = props.state.dialogInfo.map(element => <Dialog name={element.name} id={element.id} key={element.id} />)
-    let MessageItem = props.state.messages.map(element => <Message message={element.message} id={element.id} key={element.id}/>)
     let ref = React.createRef();
     let AddMessage = () =>
     {
         let text = ref.current.value;
-        alert(text);
+        props.addMessage(text);
     }
+
+    let UpdateNewMessageText = () =>
+    {
+        let text = ref.current.value;
+        props.UpdateNewMessageText(text);
+    }
+
+    let DialogItem = props.messagesPage.dialogInfo.map(element => <Dialog name={element.name} id={element.id} key={element.id} />)
+    let MessageItem = props.messagesPage.messages.map(element => <Message message={element.message} id={element.id} key={element.id}/>)
 
     return (
         <div className={style.dialogs}>
             <div className={style.dialogsItems}>
                 {DialogItem}
                 <div className={style.wrapperMessage}>
-                    <textarea ref={ref}></textarea>
-                    <div><button onClick={AddMessage}>Add message</button></div>
+                    <textarea ref={ref} onChange={UpdateNewMessageText} value={props.NewMessageText}></textarea>
+                    <div><button onClick={AddMessage} >Add message</button></div>
                 </div>
-
             </div>
             <div className={style.messages}>
                 {MessageItem}
-
             </div>
-
         </div>
     );
 }

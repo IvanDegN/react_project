@@ -21,6 +21,7 @@ let state =
                         {id: 4, message: 'He has a cat'},
                         {id: 5, message: 'She has a car'},
                     ],
+                NewMessageText: 'Message'
             },
 
         profilePage:
@@ -33,7 +34,7 @@ let state =
                         {id: 4, text: 'He always does his work in time', likesCount: 10},
                         {id: 5, text: 'She watches TV', likesCount: 10}
                     ],
-                NewPostText: 'Hello'
+                NewPostText: 'Post text'
             },
         NavBar:
             {
@@ -48,18 +49,37 @@ let state =
 
     }
 
+    window.state = state;
+
 export let addPost = (postMessage) =>
 {
-    let newPost = {id:6, text: postMessage, likesCount: 30}
-    state.profilePage.NewPostText = '';
+    let newPost = {id:6, text: postMessage, likesCount: 30};
+    UpdateNewPostText('');
     state.profilePage.post.push(newPost);
-    rerender(state)
+    rerender(state);
+
+}
+
+export let addMessage = (TextMessage) =>
+{
+    let newMessage = {id: 6, message: TextMessage};
+    let newUser = {id: 6, name: 'Ivan'};
+    UpdateNewMessageText('');
+    state.messagesPage.messages.push(newMessage);
+    state.messagesPage.dialogInfo.push(newUser);
+    rerender(state);
 
 }
 
 export let UpdateNewPostText = (NewText) =>
 {
     state.profilePage.NewPostText = NewText;
+    rerender(state);
+}
+
+export let UpdateNewMessageText = (NewText) =>
+{
+    state.messagesPage.NewMessageText = NewText;
     rerender(state);
 }
 
