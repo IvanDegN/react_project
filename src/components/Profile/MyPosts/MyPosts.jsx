@@ -8,13 +8,12 @@ const MyPosts = (props) =>
     let ref = React.createRef();
     let addPost = () =>
     {
-        let text = ref.current.value;
-        props.addPost(text)
+        props.dispatch({type: 'ADD-POST'});
     }
     let UpdateNewPostText = () =>
     {
-        let text = ref.current.value;
-        props.UpdateNewPostText(text);
+        let NewPostText = ref.current.value;
+        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', NewPostText});
     }
 
     let postItem = props.post.map(element => <Post id={element.id} key={element.id} like={element.likesCount} text={element.text}  />)

@@ -1,4 +1,7 @@
-
+const ADD_POST = 'ADD-POST';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
 let store = {
     _state:  {
 
@@ -55,36 +58,66 @@ let store = {
     {
         console.log('state change')
     },
-    addPost()
+    _addPost()
     {
+        debugger;
         let newPost = {id:6, text: this._state.profilePage.NewPostText, likesCount: 30};
         this._state.profilePage.post.push(newPost);
-        this.UpdateNewPostText('');
+        this._state.profilePage.NewPostText = '';
         this._callSubscriber(this._state);
+
     },
-    addMessage()
+    _addMessage()
     {
+
         let newMessage = {id: 6, message: this._state.messagesPage.NewMessageText};
         let newUser = {id: 6, name: 'Ivan'};
         this._state.messagesPage.messages.push(newMessage);
         this._state.messagesPage.dialogInfo.push(newUser);
-        this.UpdateNewMessageText('');
+        this._state.messagesPage.NewMessageText = '';
+        this._callSubscriber(this._state);
+
+    },
+    _UpdateNewPostText(Text)
+    {
+
+        this._state.profilePage.NewPostText = Text;
         this._callSubscriber(this._state);
     },
-    UpdateNewPostText(NewText)
+    _UpdateNewMessageText(Text)
     {
-        this._state.profilePage.NewPostText = NewText;
-        this._callSubscriber(this._state);
-    },
-    UpdateNewMessageText(NewText)
-    {
-        this._state.messagesPage.NewMessageText = NewText;
+        this._state.messagesPage.NewMessageText = Text;
         this._callSubscriber(this._state);
     },
     subscribe(observer)
     {
         this._callSubscriber = observer;
+    },
+    dispatch(action)
+    {
+        if(action.type === ADD_POST)
+        {
+            this._addPost();
+
+        }
+
+        if(action.type === ADD_MESSAGE)
+        {
+            this._addMessage();
+        }
+
+        if(action.type === UPDATE_MESSAGE_TEXT)
+        {
+            this._UpdateNewMessageText(action.NewMessageText);
+        }
+
+        if(action.type === UPDATE_NEW_POST_TEXT)
+        {
+            this._UpdateNewPostText(action.NewPostText);
+        }
+
     }
+
 }
     window.store = store;
 
