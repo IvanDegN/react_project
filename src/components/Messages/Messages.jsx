@@ -2,20 +2,23 @@ import style from './Messages.module.css'
 import Dialog from "../Dialog/Dialog";
 import Message from "../Dialog/Message/Message";
 import React from "react";
+import {AddMessageAC, UpdateNewMessageTextAC} from "../../Redux/state";
 
 const Messages = (props) =>
 {
 
+
+
     let ref = React.createRef();
     let AddMessage = () =>
     {
-        props.dispatch({type: 'ADD-MESSAGE'});
+        props.dispatch(AddMessageAC());
     }
 
     let UpdateNewMessageText = () =>
     {
         let NewMessageText = ref.current.value;
-        props.dispatch({type: 'UPDATE-MESSAGE-TEXT', NewMessageText})
+        props.dispatch(UpdateNewMessageTextAC(NewMessageText));
     }
 
     let DialogItem = props.messagesPage.dialogInfo.map(element => <Dialog name={element.name} id={element.id} key={element.id} />)

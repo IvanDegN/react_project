@@ -1,19 +1,23 @@
 import style from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import React from "react";
+import {addPostAC, UpdateNewPostTextAC} from "../../../Redux/state";
+
 
 
 const MyPosts = (props) =>
 {
+
+
     let ref = React.createRef();
     let addPost = () =>
     {
-        props.dispatch({type: 'ADD-POST'});
+        props.dispatch(addPostAC());
     }
     let UpdateNewPostText = () =>
     {
         let NewPostText = ref.current.value;
-        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', NewPostText});
+        props.dispatch(UpdateNewPostTextAC(NewPostText));
     }
 
     let postItem = props.post.map(element => <Post id={element.id} key={element.id} like={element.likesCount} text={element.text}  />)

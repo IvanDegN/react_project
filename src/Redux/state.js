@@ -119,6 +119,9 @@ let store = {
     }
 
 }
-    window.store = store;
-
+export const addPostAC = () => ({ type: ADD_POST});
+export const UpdateNewPostTextAC = (NewPostText) => ({type: UPDATE_NEW_POST_TEXT, NewPostText });
+export const AddMessageAC = () => ({type: ADD_MESSAGE});
+export const UpdateNewMessageTextAC = (NewMessageText) => ({type: UPDATE_MESSAGE_TEXT, NewMessageText});
+window.store = store;
 export default store;
