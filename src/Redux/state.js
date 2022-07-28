@@ -1,7 +1,6 @@
-import {rerender} from "../render";
 
-let state =
-    {
+let store = {
+    _state:  {
 
         messagesPage:
             {
@@ -39,48 +38,54 @@ let state =
         NavBar:
             {
                 friends:
-                [
-                    {id: 1, name: 'Ivan', url: 'friends/01'},
-                    {id: 2, name: 'Alex', url: 'friends/02'},
-                    {id: 3, name: 'Peter', url: 'friends/03'},
-                ]
+                    [
+                        {id: 1, name: 'Ivan', url: 'friends/01'},
+                        {id: 2, name: 'Alex', url: 'friends/02'},
+                        {id: 3, name: 'Peter', url: 'friends/03'},
+                    ]
             }
 
 
+    },
+    getState()
+    {
+        return this._state;
+    },
+    _callSubscriber()
+    {
+        console.log('state change')
+    },
+    addPost()
+    {
+        let newPost = {id:6, text: this._state.profilePage.NewPostText, likesCount: 30};
+        this._state.profilePage.post.push(newPost);
+        this.UpdateNewPostText('');
+        this._callSubscriber(this._state);
+    },
+    addMessage()
+    {
+        let newMessage = {id: 6, message: this._state.messagesPage.NewMessageText};
+        let newUser = {id: 6, name: 'Ivan'};
+        this._state.messagesPage.messages.push(newMessage);
+        this._state.messagesPage.dialogInfo.push(newUser);
+        this.UpdateNewMessageText('');
+        this._callSubscriber(this._state);
+    },
+    UpdateNewPostText(NewText)
+    {
+        this._state.profilePage.NewPostText = NewText;
+        this._callSubscriber(this._state);
+    },
+    UpdateNewMessageText(NewText)
+    {
+        this._state.messagesPage.NewMessageText = NewText;
+        this._callSubscriber(this._state);
+    },
+    subscribe(observer)
+    {
+        this._callSubscriber = observer;
     }
-
-    window.state = state;
-
-export let addPost = (postMessage) =>
-{
-    let newPost = {id:6, text: postMessage, likesCount: 30};
-    UpdateNewPostText('');
-    state.profilePage.post.push(newPost);
-    rerender(state);
-
 }
+    window.store = store;
 
-export let addMessage = (TextMessage) =>
-{
-    let newMessage = {id: 6, message: TextMessage};
-    let newUser = {id: 6, name: 'Ivan'};
-    UpdateNewMessageText('');
-    state.messagesPage.messages.push(newMessage);
-    state.messagesPage.dialogInfo.push(newUser);
-    rerender(state);
-
-}
-
-export let UpdateNewPostText = (NewText) =>
-{
-    state.profilePage.NewPostText = NewText;
-    rerender(state);
-}
-
-export let UpdateNewMessageText = (NewText) =>
-{
-    state.messagesPage.NewMessageText = NewText;
-    rerender(state);
-}
-
-export default state;
+export default store;
