@@ -11,12 +11,12 @@ import App from "./App";
 const root = ReactDOM.createRoot(document.getElementById('root'));
  let rerender = (state) =>
 {
-
     root.render(
         <React.StrictMode>
             <BrowserRouter>
                 <App state={state}
-                     dispatch={store.dispatch.bind(store)}/>
+                     dispatch={store.dispatch.bind(store)}
+                     />
             </BrowserRouter>
         </React.StrictMode>
     );

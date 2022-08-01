@@ -14,15 +14,20 @@ const App = (props) => {
     return (
             <div className={'wrapper'}>
                 <Header/>
-                <Nav state={props.state.NavBar}/>
+                <Nav state={props.state}/>
                 <div className={'wrapper-content'}>
                     <Routes>
-                        <Route path={'/profile'} element={<Profile profilePage={props.state.profilePage}
+                        <Route path={'/profile'} element={<Profile profilePage={props.profilePage}
                                                                    dispatch={props.dispatch}
-                                                                   NewPostText={props.state.profilePage.NewPostText}/>}/>
-                        <Route path={'/messages/*'} element={<Messages messagesPage={props.state.messagesPage}
+                                                                   NewPostText={props.NewPostText}
+                                                                   state={props.state}
+                                                                   />}/>
+                        <Route path={'/messages/*'} element={<Messages messagesPage={props.messagesPage}
                                                                        dispatch={props.dispatch}
-                                                                       NewMessageText={props.state.messagesPage.NewMessageText}/>}/>
+                                                                       NewMessageText={props.state.messagesPage.NewMessageText}
+                                                                        state={props.state}
+                                                                       dialogInfo={props.state.messagesPage.dialogInfo}
+                                                                       messages={props.state.messagesPage.messages}/>}/>
                         <Route path={'/news'} element={<News/>}/>
                         <Route path={'/music'} element={<Music/>}/>
                         <Route path={'/settings'} element={<Settings/>}/>

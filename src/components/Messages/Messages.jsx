@@ -21,8 +21,10 @@ const Messages = (props) =>
         props.dispatch(UpdateNewMessageTextAC(NewMessageText));
     }
 
-    let DialogItem = props.messagesPage.dialogInfo.map(element => <Dialog name={element.name} id={element.id} key={element.id} />)
-    let MessageItem = props.messagesPage.messages.map(element => <Message message={element.message} id={element.id} key={element.id}/>)
+
+    let DialogItem = props.dialogInfo.map(element => <Dialog name={element.name} id={element.id} key={element.id} />)
+    let MessageItem = props.messages.map(element => <Message message={element.message} id={element.id} key={element.id}/>)
+
 
     return (
         <div className={style.dialogs}>

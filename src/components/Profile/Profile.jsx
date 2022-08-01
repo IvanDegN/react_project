@@ -7,10 +7,12 @@ const Profile = (props) => {
     return (
         <div>
             <User/>
-            <MyPosts  post={props.profilePage.post}
-                      id={props.profilePage.id}
+            <MyPosts  post={props.state.profilePage.post}
+                      id={props.state.profilePage.id}
                       dispatch={props.dispatch}
-                      NewPostText={props.NewPostText}/>
+                      NewPostText={props.state.profilePage.NewPostText}
+                        state={props.state}
+            />
         </div>
     );
 }

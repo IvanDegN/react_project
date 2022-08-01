@@ -1,3 +1,6 @@
+import {ProfileReducer} from "./ProfileReducer";
+import {MessagesReducer} from "./MessagesReducer";
+
 const ADD_POST = 'ADD-POST';
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
@@ -60,7 +63,6 @@ let store = {
     },
     _addPost()
     {
-        debugger;
         let newPost = {id:6, text: this._state.profilePage.NewPostText, likesCount: 30};
         this._state.profilePage.post.push(newPost);
         this._state.profilePage.NewPostText = '';
@@ -87,7 +89,7 @@ let store = {
     _UpdateNewMessageText(Text)
     {
         this._state.messagesPage.NewMessageText = Text;
-        this._callSubscriber(this._state);
+
     },
     subscribe(observer)
     {
@@ -95,26 +97,9 @@ let store = {
     },
     dispatch(action)
     {
-        if(action.type === ADD_POST)
-        {
-            this._addPost();
-
-        }
-
-        if(action.type === ADD_MESSAGE)
-        {
-            this._addMessage();
-        }
-
-        if(action.type === UPDATE_MESSAGE_TEXT)
-        {
-            this._UpdateNewMessageText(action.NewMessageText);
-        }
-
-        if(action.type === UPDATE_NEW_POST_TEXT)
-        {
-            this._UpdateNewPostText(action.NewPostText);
-        }
+      this._state.profilePage =  ProfileReducer(this._state.profilePage, action);
+      this._state.messagesPage = MessagesReducer(this._state.messagesPage, action);
+      this._callSubscriber(this._state);
 
     }
 

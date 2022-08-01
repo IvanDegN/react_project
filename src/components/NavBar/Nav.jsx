@@ -5,7 +5,7 @@ import FriendsItem from "./Friends/FriendsItem";
 const Nav = (props) => {
 
 
-    let friendItem = props.state.friends.map(element => <FriendsItem name={element.name} id={element.id} key={element.id} url={element.url}/>)
+    let friendItem = props.state.NavBar.friends.map(element => <FriendsItem  name={element.name} id={element.id} key={element.id} url={element.url}/>)
 
     return (
         <div>
