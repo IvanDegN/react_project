@@ -20,3 +20,6 @@ export const MessagesReducer = (state, action) =>
 
     return state;
 }
+
+export const AddMessageAC = () => ({type: ADD_MESSAGE});
+export const UpdateNewMessageTextAC = (NewMessageText) => ({type: UPDATE_MESSAGE_TEXT, NewMessageText});

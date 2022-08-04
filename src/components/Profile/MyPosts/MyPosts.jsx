@@ -1,7 +1,7 @@
 import style from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import React from "react";
-import {addPostAC, UpdateNewPostTextAC} from "../../../Redux/state";
+import {addPostAC, UpdateNewPostTextAC} from "../../../Redux/ProfileReducer";
 
 
 

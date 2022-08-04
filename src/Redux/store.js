@@ -1,10 +1,6 @@
 import {ProfileReducer} from "./ProfileReducer";
 import {MessagesReducer} from "./MessagesReducer";
 
-const ADD_POST = 'ADD-POST';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
 let store = {
     _state:  {
 
@@ -61,36 +57,7 @@ let store = {
     {
         console.log('state change')
     },
-    _addPost()
-    {
-        let newPost = {id:6, text: this._state.profilePage.NewPostText, likesCount: 30};
-        this._state.profilePage.post.push(newPost);
-        this._state.profilePage.NewPostText = '';
-        this._callSubscriber(this._state);
 
-    },
-    _addMessage()
-    {
-
-        let newMessage = {id: 6, message: this._state.messagesPage.NewMessageText};
-        let newUser = {id: 6, name: 'Ivan'};
-        this._state.messagesPage.messages.push(newMessage);
-        this._state.messagesPage.dialogInfo.push(newUser);
-        this._state.messagesPage.NewMessageText = '';
-        this._callSubscriber(this._state);
-
-    },
-    _UpdateNewPostText(Text)
-    {
-
-        this._state.profilePage.NewPostText = Text;
-        this._callSubscriber(this._state);
-    },
-    _UpdateNewMessageText(Text)
-    {
-        this._state.messagesPage.NewMessageText = Text;
-
-    },
     subscribe(observer)
     {
         this._callSubscriber = observer;
@@ -104,9 +71,8 @@ let store = {
     }
 
 }
-export const addPostAC = () => ({ type: ADD_POST});
-export const UpdateNewPostTextAC = (NewPostText) => ({type: UPDATE_NEW_POST_TEXT, NewPostText });
-export const AddMessageAC = () => ({type: ADD_MESSAGE});
-export const UpdateNewMessageTextAC = (NewMessageText) => ({type: UPDATE_MESSAGE_TEXT, NewMessageText});
+
+
+
 window.store = store;
 export default store;
