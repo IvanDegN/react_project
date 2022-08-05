@@ -3,7 +3,6 @@ import {MessagesReducer} from "./MessagesReducer";
 
 let store = {
     _state:  {
-
         messagesPage:
             {
                 dialogInfo:

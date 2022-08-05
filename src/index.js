@@ -1,11 +1,11 @@
 
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import store from "./Redux/store";
 import ReactDOM from "react-dom/client";
 import React from "react";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
+import store from './Redux/ReduxStore'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -25,5 +25,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
 rerender(store.getState());
-store.subscribe(rerender);
+store.subscribe(() =>
+{
+    let state = store.getState();
+    rerender(state)
+});
 reportWebVitals();
