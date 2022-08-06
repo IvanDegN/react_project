@@ -1,23 +1,18 @@
 import style from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import React from "react";
-import {addPostAC, UpdateNewPostTextAC} from "../../../Redux/ProfileReducer";
-
-
 
 const MyPosts = (props) =>
 {
-
-
     let ref = React.createRef();
     let addPost = () =>
-    {
-        props.dispatch(addPostAC());
+   {
+       props.addPost();
     }
     let UpdateNewPostText = () =>
     {
         let NewPostText = ref.current.value;
-        props.dispatch(UpdateNewPostTextAC(NewPostText));
+        props.UpdateNewPostText(NewPostText);
     }
 
     let postItem = props.post.map(element => <Post id={element.id} key={element.id} like={element.likesCount} text={element.text}  />)

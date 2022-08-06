@@ -2,11 +2,11 @@ import './App.css';
 import Header from "./components/Header/Header";
 import Nav from "./components/NavBar/Nav";
 import Profile from "./components/Profile/Profile";
-import Messages from "./components/Messages/Messages";
 import {Route, Routes} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
+import MessagesContainer from "./components/Messages/MessagesContainer";
 
 
 
@@ -22,7 +22,7 @@ const App = (props) => {
                                                                    NewPostText={props.NewPostText}
                                                                    state={props.state}
                                                                    />}/>
-                        <Route path={'/messages/*'} element={<Messages messagesPage={props.messagesPage}
+                        <Route path={'/messages/*'} element={<MessagesContainer messagesPage={props.messagesPage}
                                                                        dispatch={props.dispatch}
                                                                        NewMessageText={props.state.messagesPage.NewMessageText}
                                                                         state={props.state}
