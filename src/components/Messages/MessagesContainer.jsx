@@ -1,26 +1,26 @@
 import Messages from "./Messages";
 import {AddMessageAC, UpdateNewMessageTextAC} from "../../Redux/MessagesReducer";
+import {connect} from "react-redux";
 
-const MessagesContainer = (props) =>
+
+let mapStateToProps = (state) =>
 {
-
-    let AddMessage = () =>
-    {
-        props.dispatch(AddMessageAC());
+    return {
+        dialogInfo: state.messagesPage.dialogInfo,
+        messages: state.messagesPage.messages,
+        NewMessageText: state.messagesPage.NewMessageText
     }
-
-    let UpdateNewMessageText = (NewMessageText) =>
-    {
-        props.dispatch(UpdateNewMessageTextAC(NewMessageText));
-    }
-
-    return (<Messages AddMessage={AddMessage}
-                      UpdateNewMessageText={UpdateNewMessageText}
-                      dialogInfo={props.dialogInfo}
-                      messages={props.messages}
-                      NewMessageText={props.NewMessageText}/>)
-
 }
+
+let mapDispatchToProps = (dispatch) =>
+{
+    return {
+        AddMessage: () => {dispatch(AddMessageAC());},
+        UpdateNewMessageText: (NewMessageText) => {dispatch(UpdateNewMessageTextAC(NewMessageText));}
+    }
+}
+
+const MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(Messages);
 
 export default MessagesContainer;
 
